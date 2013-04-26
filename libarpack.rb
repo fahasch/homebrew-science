@@ -7,7 +7,7 @@ class Libarpack < Formula
   head 'git://git.forge.scilab.org/arpack-ng.git'
 
   option 'with-mpi', 'build parallel version of arpack with MPI'
-  depends_on 'open-mpi' if build.include? 'with-mpi'
+  depends_on MPIDependency.new(:f77) if build.include? 'with-mpi'
 
   def install
     ENV.fortran
